@@ -12,6 +12,7 @@ process CELLRANGER_MULTI {
     //path referenceFeature,optional:true ,stageAs: 'referenceFeature'
 
     output:
+    tuple val(meta), path("cellranger_multi_config.csv"), emit: config
     tuple val(meta), path("**/outs/**")                 , emit: outs
     path "versions.yml"                                 , emit: versions
 
@@ -30,7 +31,8 @@ process CELLRANGER_MULTI {
         multi \\
         --id='${id}' \\
         --csv=${cellranger_multi_config}\\
-        --localcores=${task.cpus} \\
+        --localcores=16 \\
+        --localmem=64 \\
         $args
 
     cat <<-END_VERSIONS > versions.yml
