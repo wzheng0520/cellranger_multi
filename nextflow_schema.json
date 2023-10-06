@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/./master/nextflow_schema.json",
+    "title": ". pipeline parameters",
+    "description": "",
+    "type": "object",
+    "definitions": {
+        "input": {
+            "title": "Input",
+            "type": "object",
+            "description": "Provide input to pipeline",
+            "default": "",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Provide S3 location to sample sheet"
+                },
+                "referenceGenome": {
+                    "type": "file-path",
+                    "description": "Provide S3 location to folder containing cellranger reference"
+                },
+                "fastqPath": {
+                    "type": "file-path",
+                    "description": "Provide S3 location to folder containing cellranger reference"
+                },
+                "cellranger_multi_config": {
+                    "type": "file-path",
+                    "description": "Provide S3 location to folder containing cellranger reference"
+                }
+
+            }
+        }
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/input"
+        }
+    ]
+  

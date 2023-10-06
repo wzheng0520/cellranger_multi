@@ -1,0 +1,30 @@
+name: fastqscreen_fastqscreen
+description: Align reads to multiple reference genomes using fastq-screen
+keywords:
+  - fastqPath
+  - referenceGenome
+  - cellranger_multi_config
+tools:
+  - "cellranger multi":
+      description: Cell Ranger by 10x Genomics is a set of analysis pipelines that process Chromium single-cell data to align reads, generate feature-barcode matrices, perform clustering and other secondary analysis, and more.
+      homepage: https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger
+      documentation: https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_cp
+      tool_dev_url: https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_cp
+      licence: 10X Genomics EULA
+input:
+  - referenceGenome:
+      type: directory
+      description: fastq screen database folder containing config file and index folders
+      pattern: "referenceGenome"
+output:
+  - outs:
+      type: file
+      description: Files containing the outputs of Cell Ranger
+      pattern: "${meta.id}/outs/*"
+  - versions:
+      type: file
+      description: File containing software versions
+      pattern: "versions.yml"
+authors:
+  - "@snesic"
+  - "@JPejovicApis"
