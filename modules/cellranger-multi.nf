@@ -26,6 +26,8 @@ process CELLRANGER_MULTI {
     }
     def args   = task.ext.args   ?: ''
     //def prefix = task.ext.prefix ?: "${meta.id}"
+    println("referenceGenome folder: "+ referenceGenome)
+    println("fastqPath folder: "+ fastqPath)
     """
     cellranger \\
         multi \\
