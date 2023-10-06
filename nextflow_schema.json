@@ -10,6 +10,7 @@
             "type": "object",
             "description": "Provide input to pipeline",
             "default": "",
+            "required": ["input"],
             "properties": {
                 "id": {
                     "type": "string",
