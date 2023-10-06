@@ -17,15 +17,18 @@
                     "description": "Provide S3 location to sample sheet"
                 },
                 "referenceGenome": {
-                    "type": "file-path",
+                    "type": "string",
+                    "format": "directory-path",
                     "description": "Provide S3 location to folder containing cellranger reference"
                 },
                 "fastqPath": {
-                    "type": "file-path",
+                    "type": "string",
+                    "format": "directory-path",
                     "description": "fastqPath"
                 },
                 "cellranger_multi_config": {
-                    "type": "file-path",
+                    "type": "string",
+                    "format": "directory-path",
                     "description": "cellranger_multi_config"
                 }
 
