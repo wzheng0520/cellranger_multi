@@ -21,11 +21,11 @@
                 },
                 "fastqPath": {
                     "type": "file-path",
-                    "description": "Provide S3 location to folder containing cellranger reference"
+                    "description": "fastqPath"
                 },
                 "cellranger_multi_config": {
                     "type": "file-path",
-                    "description": "Provide S3 location to folder containing cellranger reference"
+                    "description": "cellranger_multi_config"
                 }
 
             }
