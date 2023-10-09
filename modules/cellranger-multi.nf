@@ -7,7 +7,7 @@ process CELLRANGER_MULTI {
     input:
     val id
     path referenceGenome, stageAs: 'referenceGenome'
-    path fastqPath, stageAs: 'fastqPath'
+    path fastqPath, stageAs: 'fastq-path'
     path cellranger_multi_config
     //path referenceFeature,optional:true ,stageAs: 'referenceFeature'
 
@@ -30,7 +30,7 @@ process CELLRANGER_MULTI {
     
     """
     sed -i "s#reference,referenceGenome/Index/CellrangerIndex#reference,\$PWD/referenceGenome/Index/CellrangerIndex#" ${cellranger_multi_config}
-    sed -i "s#\\(fastqPath/[^,]*\\)#\$PWD/\\1#g" ${cellranger_multi_config}
+    sed -i "s#\\(fastq-path/[^,]*\\)#\$PWD/\\1#g" ${cellranger_multi_config}
 
     cellranger \\
         multi \\
