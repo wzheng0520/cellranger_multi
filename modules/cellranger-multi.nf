@@ -1,6 +1,8 @@
 process CELLRANGER_MULTI {
-    //tag "$meta.id"
+    cpus 16
+    memory '72 GB'
     label 'process_high'
+    publishDir params.out
 
     container "nf-core/cellranger:7.1.0"
 
@@ -27,7 +29,7 @@ process CELLRANGER_MULTI {
     def args   = task.ext.args   ?: ''
     //def prefix = task.ext.prefix ?: "${meta.id}"
     
-    
+
     """
     sed -i "s#reference,referenceGenome/Index/CellrangerIndex#reference,\$PWD/referenceGenome/Index/CellrangerIndex#" ${cellranger_multi_config}
     sed -i "s#\\(fastq-path/[^,]*\\)#\$PWD/\\1#g" ${cellranger_multi_config}

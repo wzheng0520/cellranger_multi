@@ -33,11 +33,26 @@
                 }
 
             }
+        },
+        "output": {
+            "title": "Output",
+            "type": "object",
+            "description": "",
+            "default": "",
+            "properties": {
+                "out": {
+                    "type": "string",
+                    "description": "Provide S3 location to store results"
+                }
+            }
         }
     },
     "allOf": [
         {
             "$ref": "#/definitions/Input"
+        },
+        {
+            "$ref": "#/definitions/output"
         }
     ]
 }
