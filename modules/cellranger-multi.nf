@@ -26,9 +26,12 @@ process CELLRANGER_MULTI {
     }
     def args   = task.ext.args   ?: ''
     //def prefix = task.ext.prefix ?: "${meta.id}"
-    println("referenceGenome folder: "+ referenceGenome)
-    println("fastqPath folder: "+ fastqPath)
+    
+    
     """
+    sed -i "s#reference,referenceGenome/Index/CellrangerIndex#reference,\$PWD/referenceGenome/Index/CellrangerIndex#" ${cellranger_multi_config}
+    sed -i "s#\\(fastq-path/[^,]*\\)#\$PWD/\\1#g" ${cellranger_multi_config}
+
     cellranger \\
         multi \\
         --id='${id}' \\
