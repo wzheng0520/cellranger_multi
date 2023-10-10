@@ -1,6 +1,6 @@
 process CELLRANGER_MULTI {
-    cpus 16
-    memory '128 GB'
+    cpus 32
+    memory '400 GB'
     label 'process_high'
     publishDir params.out
 
