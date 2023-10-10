@@ -14,8 +14,8 @@ process CELLRANGER_MULTI {
     //path referenceFeature,optional:true ,stageAs: 'referenceFeature'
 
     output:
-    tuple val(meta), path("cellranger_multi_config.csv"), emit: config
-    tuple val(meta), path("**/outs/**")                 , emit: outs
+    path("cellranger_multi_config.csv"), emit: config
+    path("**/outs/**")                 , emit: outs
     path "versions.yml"                                 , emit: versions
 
     when:
@@ -49,7 +49,7 @@ process CELLRANGER_MULTI {
     """
 
     stub:
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    //def prefix = task.ext.prefix ?: "${meta.id}"
     """
     mkdir -p "${id}/outs/"
     touch ${id}/outs/fake_file.txt
