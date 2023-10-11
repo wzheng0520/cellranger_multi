@@ -14,7 +14,6 @@ process CELLRANGER_MULTI {
     //path referenceFeature,optional:true ,stageAs: 'referenceFeature'
 
     output:
-    path("cellranger_multi_config.csv"), emit: config
     path("**/outs/**")                 , emit: outs
     path "versions.yml"                                 , emit: versions
 
